@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand"><i class="fa-solid fa-paper-plane"></i></a>
+      <button style="background-color: #a49a9a; font-size: 15px;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link navbarLinks" href="/listings">Home</a>
+          </li>
+          <li class="nav-item">
+            <div>
+              <a class="nav-link navbarLinks" href="/listings/new">Add place to explore</a>
+            </div>
+          </li>
+
+          <div>
+            <form class="d-flex search-pannel" >
+              <input class="form-control" type="search" placeholder="Search your next destination..." aria-label="Search">
+              <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+
+          <%if(!currUser){%>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-circle-user" style="font-size: 31px;"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/signup" style="margin:0 !important;" >SignUp</a></li>
+              <li><a class="dropdown-item" href="/login" style="margin:0 !important;">Login</a></li>
+          <%}%>
+
+          <%if(currUser){%>
+            <li><a class="dropdown-item ms-3 mt-2 navbarLinks" style="color: white; padding: 6px 3px 6px 10px !important;" href="/logout">log out</a></li>
+          <%}%>
+        </ul>
+      </div>
+    </div>
+  </nav>

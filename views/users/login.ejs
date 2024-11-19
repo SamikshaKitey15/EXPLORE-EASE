@@ -1,0 +1,26 @@
+<%layout("./layouts/boilerplate")%>
+<br>
+<div class="offset-lg-4">
+    <div class="card" style="width: 28rem;">
+        <h1>Login on ExploreEase</h1>
+        <br>
+        <form method="POST" action="/login" class="needs-validation" novalidate>
+            <div>
+                <label for="username" class="form-label">Username*</label>
+                <input name="username" id="username" placeholder="Enter the Username" type="text" class="form-control" required>
+                <!-- <div class="valid-feedback">Title looks good!</div> -->
+            </div>
+            <br>
+
+            <div>
+                <label for="password" class="form-label">Password*</label>
+                <input name="password" id="password" placeholder="Enter your password" type="password" class="form-control" required>
+                <!-- <div class="valid-feedback">Title looks good!</div> -->
+            </div>
+            <br><br>
+            <button class="btn btn-success">Login</button>
+            <a href="/signup" style="margin: 1rem;">Create an account</a>
+        </form>
+    </div>
+</div>
+    

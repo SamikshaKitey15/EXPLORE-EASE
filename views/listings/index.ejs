@@ -1,0 +1,98 @@
+<%layout("./layouts/boilerplate")%>
+<body>
+<div id="filters">
+  <div class="filter">
+    <i class="fa-solid fa-plane-up"></i>
+    <p>Flights</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-hotel"></i>
+    <p>Hotels</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-house-user"></i>
+    <p>Homestays & Villas</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-umbrella-beach"></i>      
+    <p>Holiday Packages</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-train-subway"></i>
+    <p>Trains</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-bus"></i>
+    <p>Buses</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-taxi"></i>
+    <p>Cabs</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-wallet"></i>
+     <p>Forex Card & Currency</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-car-burst"></i>
+    <p>Travel Insurance</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-route"></i>
+    <p>Travel Guide</p>
+  </div>
+
+  <div class="filter">
+    <i class="fa-solid fa-ticket"></i>
+    <p>Coupons & Deals</p>
+  </div>    
+</div>
+<%-include("../includes/flash.ejs")%>
+
+
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 mt-3">
+      <% for(let listing of allListings) {%> 
+          <div class="card col">
+            <a href="/listings/<%= listing._id %>">
+              <img src="<%=listing.image.url %>" class="card-img-top mb-1" alt="listing_image">
+              <div class="card-img-overlay"></div>
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-description"><%= listing.description %></p>
+              <!-- <p>&#8377;listing.price.toLocaleString("en-IN")
+                <i class="tax-info">+18% GST</i>
+              </p> -->
+              <p><%= listing.country.toUpperCase() %></p>
+              <!-- <a href="/listings/listing._id" class="btn btn-primary">See in Detail</a> -->
+            </div>
+          </div>
+      <% } %> 
+    </div>  
+</body>
+
+
+<script>
+  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+  taxSwitch.addEventListener("click", () => {
+  let taxInfo = document.getElementsByClassName("tax-info");
+  for(info of taxInfo){
+    if(info.style.display !== "inline"){
+      info.style.display = "inline";
+    }
+    else{
+      info.style.display = "none";
+    }
+  }
+  });
+</script>
+

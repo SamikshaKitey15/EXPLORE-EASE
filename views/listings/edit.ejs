@@ -1,0 +1,56 @@
+<%layout("./layouts/boilerplate")%>
+<body>
+    <div class="offset-lg-3">
+        <div class="card" style="width: 40rem; height: 53rem;" >
+            <h3>Create a New Listing</h3>
+            <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div>
+                    <label for="title" class="form-label">Title*</label>
+                    <input name="listing[title]" value="<%=listing.title%>" type="text" class="form-control" required>
+                </div>
+                <br>
+        
+                <div>
+                    <label for="description" class="form-label">Description*</label>
+                    <textarea name="listing[description]" type="text" class="form-control" required><%=listing.description%></textarea>
+                </div>
+                <br>
+
+                <div>
+                    <img  class="card-img-top" src="<%=listing.image.url%>">
+                </div>
+                <br>
+
+                <div>
+                    <label for="image" class="form-label">Upload new image</label>
+                    <input name="listing[image]" type="file" class="form-control" >
+                </div>
+                <br>
+        
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="price" class="form-label">Price*</label>
+                        <input name="listing[price]" value="<%=listing.price%>" type="number" class="form-control" required>
+                    </div>
+            
+                    <div class="col-md-8">
+                        <label for="country" class="form-label">Country*</label>
+                        <input name="listing[country]" value="<%=listing.country%>" type="text"class="form-control" required>
+                    </div>
+                </div>
+                <br>
+        
+                <div>
+                    <label for="location" class="form-label">Location*</label>
+                    <input name="listing[location]" value="<%=listing.location%>" type="text"class="form-control" required>
+                </div>
+                <br>
+                <button class="btn btn-primary" style="border: none;">Edit</button>
+                <br>
+            </form>
+            </div>
+    </div>
+    
+</body>
+<br>
+
