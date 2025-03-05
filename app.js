@@ -38,7 +38,7 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const sessionOptions = {
-  secret : "top-secret",
+  secret : process.env.SECRET,
   resave : false,
   saveUninitialized : true,
   cookie : {
@@ -67,10 +67,6 @@ app.use((req, res, next) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
-
-app.get("/aboutUs", (req, res) => {
-  res.render("/listings/aboutUs.ejs");
-});
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found!"));

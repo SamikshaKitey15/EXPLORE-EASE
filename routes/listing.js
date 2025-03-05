@@ -9,7 +9,7 @@ const upload = multer({storage});
 
 router.route("/")
 .get(listingController.index)
-.post(isLoggedIn, upload.single("listing[image]"), validateListing, listingController.createListing);
+.post(upload.single("listing[image]"), validateListing, listingController.createListing);
 
 //New route
 router.get("/new", isLoggedIn, listingController.renderNewform);
